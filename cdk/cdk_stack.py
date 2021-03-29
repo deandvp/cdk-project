@@ -6,6 +6,7 @@ from aws_cdk import core as cdk
 # being updated to use `cdk`.  You may delete this import if you don't need it.
 from aws_cdk import (
     aws_s3 as _s3,
+    aws_iam as _iam,
     core
 )
 
@@ -31,6 +32,12 @@ class CdkStack(cdk.Stack):
             "bucketvar"
         )
 
+        _iam.Group(
+            self,
+            "dvpgroup",
+            group_name = "dvpgroup"
+        )
+
         print(bucketvar.bucket_name)
 
         print(variableB.bucket_name)
@@ -42,3 +49,5 @@ class CdkStack(cdk.Stack):
             description=f"My first bucket output",
             export_name="FirstBucketOpt"
         )
+
+        print(buckoutput.export_name)

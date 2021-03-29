@@ -34,10 +34,19 @@
         "aws:cdk:path": "CdkStack/bucketvar/Resource"
       }
     },
+    "dvpgroup99B10DA0": {
+      "Type": "AWS::IAM::Group",
+      "Properties": {
+        "GroupName": "dvpgroup"
+      },
+      "Metadata": {
+        "aws:cdk:path": "CdkStack/dvpgroup/Resource"
+      }
+    },
     "CDKMetadata": {
       "Type": "AWS::CDK::Metadata",
       "Properties": {
-        "Analytics": "v2:deflate64:H4sIAAAAAAAACiXMQQrCQAyF4bN0P00ptYg7sQdQ2hOUNGIcnMhMgsgwd9e2q/ctfl4Lpx7a6jx/Uo2LbzJKJMiTzujdICFpNFQ33MPV9G2bRkpiEWn1P1lYWUJx60XqIF8MPW3hrlLc7asPCU0HRzhUz8RcRwvKL4Jx3x8TdR8FhwAAAA=="
+        "Analytics": "v2:deflate64:H4sIAAAAAAAACiXMwQrCMBAE0G/pPd1Sqog3sQePlfoFYRtxDU1KsotIyL9r0tM8hmF6OB+hby76E1tcbJfQBwPpwRqtGr2LHARZjU83CW9SNZvoJaAp/k8WYvIuq3KR4gDpKmhNXe7KivQK6Ra8bKWtyDmr+5df3nUDnODQvCNRG8QxrQbmPX9bEbQingAAAA=="
       },
       "Metadata": {
         "aws:cdk:path": "CdkStack/CDKMetadata/Default"
