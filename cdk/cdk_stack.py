@@ -17,10 +17,28 @@ class CdkStack(cdk.Stack):
 
         # The code that defines your stack goes here
 
-        _s3.Bucket(
+        variableB = _s3.Bucket(
             self,
             "myBucketId",
             bucket_name = "dvpbucket512",
-            versioned=True,
-            encryption=_s3.BucketEncryption.KMS_MANAGED            
+            versioned=False,
+            encryption=_s3.BucketEncryption.S3_MANAGED,
+            block_public_access=_s3.BlockPublicAccess.BLOCK_ALL            
+        )
+
+        bucketvar = _s3.Bucket(
+            self,
+            "bucketvar"
+        )
+
+        print(bucketvar.bucket_name)
+
+        print(variableB.bucket_name)
+
+        buckoutput = core.CfnOutput(
+            self,
+            "FirstBucketOutput",
+            value=bucketvar.bucket_name,
+            description=f"My first bucket output",
+            export_name="FirstBucketOpt"
         )
