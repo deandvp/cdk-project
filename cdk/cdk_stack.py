@@ -23,7 +23,7 @@ class CdkStack(cdk.Stack):
             "myBucketId",
             bucket_name = "dvpbucket512",
             versioned=False,
-            encryption=_s3.BucketEncryption.S3_MANAGED,
+            encryption=_s3.BucketEncryption.KMS_MANAGED,
             block_public_access=_s3.BlockPublicAccess.BLOCK_ALL            
         )
 
