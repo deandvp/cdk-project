@@ -7,14 +7,17 @@
           "ServerSideEncryptionConfiguration": [
             {
               "ServerSideEncryptionByDefault": {
-                "SSEAlgorithm": "aws:kms"
+                "SSEAlgorithm": "AES256"
               }
             }
           ]
         },
         "BucketName": "dvpbucket512",
-        "VersioningConfiguration": {
-          "Status": "Enabled"
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "BlockPublicPolicy": true,
+          "IgnorePublicAcls": true,
+          "RestrictPublicBuckets": true
         }
       },
       "UpdateReplacePolicy": "Retain",
@@ -23,15 +26,34 @@
         "aws:cdk:path": "CdkStack/myBucketId/Resource"
       }
     },
+    "bucketvarFD3CBAA2": {
+      "Type": "AWS::S3::Bucket",
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "CdkStack/bucketvar/Resource"
+      }
+    },
     "CDKMetadata": {
       "Type": "AWS::CDK::Metadata",
       "Properties": {
-        "Analytics": "v2:deflate64:H4sIAAAAAAAACiWLQQrCQAxFz9L9NKVUEXdiLyD1BCWNGAcTmGQoMszdtXb1Hrz/ezgfoW8u82otLrErqImg3H3GGEYV85TRw/iQiUxzQtr8FxZ2VqlhO9oA5Zox0n+4W63h9vGnSjfACQ7Ny5jblMX5TTDt/ALiv/mNfQAAAA=="
+        "Analytics": "v2:deflate64:H4sIAAAAAAAACiXMQQrCQAyF4bN0P00ptYg7sQdQ2hOUNGIcnMhMgsgwd9e2q/ctfl4Lpx7a6jx/Uo2LbzJKJMiTzujdICFpNFQ33MPV9G2bRkpiEWn1P1lYWUJx60XqIF8MPW3hrlLc7asPCU0HRzhUz8RcRwvKL4Jx3x8TdR8FhwAAAA=="
       },
       "Metadata": {
         "aws:cdk:path": "CdkStack/CDKMetadata/Default"
       },
       "Condition": "CDKMetadataAvailable"
+    }
+  },
+  "Outputs": {
+    "FirstBucketOutput": {
+      "Description": "My first bucket output",
+      "Value": {
+        "Ref": "bucketvarFD3CBAA2"
+      },
+      "Export": {
+        "Name": "FirstBucketOpt"
+      }
     }
   },
   "Conditions": {
