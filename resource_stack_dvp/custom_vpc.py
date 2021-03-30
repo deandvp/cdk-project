@@ -1,7 +1,7 @@
 from aws_cdk import core as cdk
 from aws_cdk import aws_ec2 as _ec2
 
-class ResourcesStackDVP(cdk.Stack):
+class VPCStackDVP(cdk.Stack):
 
     def __init__(self, scope: cdk.Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
