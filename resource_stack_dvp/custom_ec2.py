@@ -13,6 +13,19 @@ class EC2StackDVP(cdk.Stack):
             vpc_id="vpc-f5b64e9e"
         )
 
+        # Get latest linux Image and store it in a variable
+        amazonLinuxAMI = _ec2.MachineImage.latest_amazon_linux(
+            generation=_ec2.AmazonLinuxGeneration.AMAZON_LINUX_2,
+            edition=_ec2.AmazonLinuxEdition.STANDARD,
+            storage=_ec2.AmazonLinuxStorage.EBS,
+            virtualization=_ec2.AmazonLinuxVirt.HVM
+        )
+
+        # Get latest Windows Image and store in a variable
+        amazonWindowsAMI = _ec2.MachineImage.latest_windows(
+            version = _ec2.WindowsVersion.WINDOWS_SERVER_2019_ENGLISH_CORE_BASE
+        )
+
         # Reading Bootstrap script
         with open("bootstrap_scripts/installhttpd.sh", mode="r") as file:
             userdatahttpd = file.read()
@@ -24,9 +37,10 @@ class EC2StackDVP(cdk.Stack):
             instance_type=_ec2.InstanceType(
                 instance_type_identifier="t2.micro"),
             instance_name="LinuxInstance",
-            machine_image=_ec2.MachineImage.generic_linux(
-                {"ap-south-1": "ami-0bcf5425cdc1d8a85"}
-            ),
+            # machine_image=_ec2.MachineImage.generic_linux(
+            #    {"ap-south-1": "ami-0bcf5425cdc1d8a85"}
+            # ),
+            machine_image=amazonWindowsAMI,
             vpc=vpcimport,
             vpc_subnets=_ec2.SubnetSelection(
                 subnet_type=_ec2.SubnetType.PUBLIC
