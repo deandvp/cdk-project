@@ -1,0 +1,48 @@
+connect-hyd1.cognizant.com/ONBOARDING
+
+Old Access Key:
+AKIAYIQS3LVCEX7FM6BC
+
+fkXUiLqEjKBLLLtioBvYN2hv36JF3QxWv1gLUR8b
+
+
+nlb-infra-bastion-sharedservices-10dae6b3b09e19cc.elb.us-east-1.amazonaws.com
+nlb-infra-bastion-sharedservices-2d9f021c2f283612.elb.us-west-2.amazonaws.com
+nlb-infra-bastion-sandbox-3d376c2ce2058eb8.elb.us-east-1.amazonaws.com
+
+Primary:- connect-chn7.cognizant.com/RLUS
+Backup:- Connect-Hyd2.cognizant.com/RLUS
+
+_______________________________________________________________________________________________________________________________________________________________________
+
+npm config set https-proxy http://proxy.cognizant.com:6050
+
+git config --global http.proxy http[s]://username:password@proxyipaddress:portnumber
+
+git config --global http.proxy http://proxy.cognizant.com:6050
+
+# export https_proxy=http://proxy.cognizant.com:6050
+
+python -m pip install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org http://proxy.cognizant.com:6050
+
+http://proxy.cognizant.com:6050
+
+_______________________________________________________________________________________________________________________________________________________________________
+
+python -m ensurepip --upgrade
+python -m pip install --upgrade pip
+python -m pip install --upgrade virtualenv
+
+_______________________________________________________________________________________________________________________________________________________________________
+
+npm install -g aws-cdk
+
+cdk init app --language python
+
+source .venv/bin/activate (or) .\source .venv/bin/activate (or) % .venv\Scripts\activate.bat
+
+python.exe -m pip install --upgrade pip
+
+python -m pip install -r requirements.txt
+
+cdk ls
