@@ -83,8 +83,4 @@ class EC2StackDVP(cdk.Stack):
             _iam.ManagedPolicy.from_aws_managed_policy_name("AmazonSSMManagedInstanceCore")
         )
 
-        webec2.role.add_managed_policy(
-            _iam.ManagedPolicy.from_aws_managed_policy_name("AmazonS3ReadOnlyAccess")
-        )
-
 
