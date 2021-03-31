@@ -36,7 +36,7 @@ class EC2StackDVP(cdk.Stack):
             "ec2instance1",
             instance_type=_ec2.InstanceType(
                 instance_type_identifier="t2.micro"),
-            instance_name="LinuxInstance",
+            instance_name="LinuxInstance-FreeTier",
             machine_image=_ec2.MachineImage.generic_linux(
                {"ap-south-1": "ami-0bcf5425cdc1d8a85"}
              ),
