@@ -37,10 +37,11 @@ class EC2StackDVP(cdk.Stack):
             instance_type=_ec2.InstanceType(
                 instance_type_identifier="t2.micro"),
             instance_name="LinuxInstance",
-            # machine_image=_ec2.MachineImage.generic_linux(
-            #    {"ap-south-1": "ami-0bcf5425cdc1d8a85"}
-            # ),
-            machine_image=amazonWindowsAMI,
+            machine_image=_ec2.MachineImage.generic_linux(
+               {"ap-south-1": "ami-0bcf5425cdc1d8a85"}
+             ),
+            #Enable to get the latest AMI and choose between Linux/Windows. MIGHT COST YOU!!
+            # machine_image=amazonWindowsAMI,
             vpc=vpcimport,
             vpc_subnets=_ec2.SubnetSelection(
                 subnet_type=_ec2.SubnetType.PUBLIC
