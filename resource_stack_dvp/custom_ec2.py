@@ -34,6 +34,22 @@ class EC2StackDVP(cdk.Stack):
             user_data=_ec2.UserData.custom(userdatahttpd)
             )
         
+        #Add EBS Volumes to the EC2 instance
+        webec2.instance.add_property_override(
+            "BlockDeviceMappings", [
+                {
+                    "DeviceName": "/dev/sdb",
+                    "Ebs": {
+                        "VolumeSize": "8",
+                        "VolumeType": "io1",
+                        "Iops": "400",
+                        "DeleteOnTermination": "true"
+                    }
+                }
+            ]
+        )
+
+        #Output the external IP of the Instance created
         ec2outputVar = cdk.CfnOutput(
             self,
             "ExternalIpOutput",
