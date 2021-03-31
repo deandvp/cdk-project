@@ -38,10 +38,6 @@ class CdkStack(cdk.Stack):
             group_name = "dvpgroup"
         )
 
-        print(bucketvar.bucket_name)
-
-        print(variableB.bucket_name)
-
         buckoutput = core.CfnOutput(
             self,
             "FirstBucketOutput",
